@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>iFrame script injection demo</title>
+    <!-- <script>
+    function thisButtonClicked(obj) {
+        obj.setAttribute("disabled", true);
+        if (obj.id == "buttoncreate") {
+        document.getElementById("buttonload").disabled = false;
+        }
+        if (obj.id == "buttonload") {
+        document.getElementById("buttonpopulate").disabled = false;
+        }
+        if (obj.id == "buttonpopulate") {
+        document.getElementById("buttonrestart").disabled = false;
+        document.getElementById("buttonrestart").style = "display:inline;";
+        }
+        if (obj.id == "buttonrestart") {
+        document.getElementById("buttonrestart").style = "display:none;";
+        document.getElementById("buttoncreate").disabled = false;
+        }
+    }
+    function restart() {
+        document.getElementById("iFrameID").remove();
+        console.clear();
+    }
+    </script> -->
+
+    <style>
+        body {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGUlEQVQYV2NkIBIwEqmOYVQh3pAiNnj+AwALaAEKfsPrZgAAAABJRU5ErkJggg==);
+            background-position: 18px 11px;
+        }
+
+        #put-iframe-here {
+            /* position: absolute; */
+            background-color: lightgreen;
+            width: 300px;
+            height: 300px;
+            margin-left: 200px;
+            margin-top: 200px;
+            padding: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>iFrame script injection demo</h1>
+    <div class='use_this' id='put-iframe-here'>initial text. iFrame will be injected here, and then populated by its own script</div>
+
+    <script src="index.js"></script>
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>iFrame isolated Component Rendering for Bubble</title>
+    <script>
+    function thisButtonClicked(obj) {
+        obj.setAttribute("disabled", true);
+        if (obj.id == "buttoncreate") {
+        document.getElementById("buttonload").disabled = false;
+        }
+        if (obj.id == "buttonload") {
+        document.getElementById("buttonpopulate").disabled = false;
+        }
+        if (obj.id == "buttonpopulate") {
+        document.getElementById("buttonrestart").disabled = false;
+        document.getElementById("buttonrestart").style = "display:inline;";
+        }
+        if (obj.id == "buttonrestart") {
+        document.getElementById("buttonrestart").style = "display:none;";
+        document.getElementById("buttoncreate").disabled = false;
+        }
+    }
+    function restart() {
+        document.getElementById("iFrameID").remove();
+        console.clear();
+    }
+    </script>
+
+    <style>
+    body {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGUlEQVQYV2NkIBIwEqmOYVQh3pAiNnj+AwALaAEKfsPrZgAAAABJRU5ErkJggg==);
+        background-position: 18px 11px;
+    }
+
+    .box {
+        margin: 0 auto;
+        margin-top: 50px;
+        width: 301px;
+        height: 101px;
+        background-color: #54cfb3;
+        padding-top: 70px;
+    }
+
+    .text {
+        margin-top: 0;
+        color: #fff;
+        text-align: center;
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .opac {
+        opacity: 0.8;
+    }
+
+    .button {
+        background-color: #4caf50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    button:disabled,
+    button[disabled] {
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+    .a50 {
+        width: 40%;
+        display: -webkit-inline-box;
+    }
+
+    #iFrameID {
+        border: 1px solid red;
+    }
+    </style>
+</head>
+<body>
+    <h1>iFrame isolated Component Rendering for Bubble</h1>
+    <p><br /><br /></p>
+    <br />
+    <br />
+    <div class="a50">
+    <button
+        class="button"
+        id="buttoncreate"
+        onclick="createiFrame('iFrameID','hostcontainer');thisButtonClicked(this);"
+    >
+        1. Create iFrame
+    </button>
+    <br />
+    <br />
+    <button
+        class="button"
+        id="buttonload"
+        disabled
+        onclick="sendPluginLoader('iFrameID');thisButtonClicked(this);"
+    >
+        2. Send advPluginloader to iframe
+    </button>
+    <br />
+    <br />
+    <button
+        class="button"
+        id="buttonpopulate"
+        disabled
+        onclick="sendToIframe('iFrameID');thisButtonClicked(this);"
+    >
+        3. Send data object to iframe
+    </button>
+    <br />
+    <br />
+    <button
+        class="button"
+        style="display:none"
+        id="buttonrestart"
+        disabled
+        onclick="restart();thisButtonClicked(this);"
+    >
+        4. Destroy iframe and restart
+    </button>
+    </div>
+    <div id="hostcontainer" class="a50"></div>
+    <!-- <script src="interactscript.js"></script> -->
+    <script src="injectiframe.js"></script>
+</body>
+</html>
