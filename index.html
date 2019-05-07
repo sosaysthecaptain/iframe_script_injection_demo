@@ -38,10 +38,11 @@
         #put-iframe-here {
             /* position: absolute; */
             background-color: lightgreen;
-            width: 300px;
-            height: 300px;
-            margin-left: 200px;
-            margin-top: 200px;
+            /* width: 300px;
+            height: 300px; */
+            display: inline-block;
+            margin-left: 100px;
+            margin-top: 50px;
             padding: 20px;
         }
 
@@ -52,7 +53,7 @@
     <h1>iFrame script injection demo</h1>
     <div class='use_this' id='put-iframe-here'>initial text. iFrame will be injected here, and then populated by its own script</div>
 
-    <script src="index.js"></script>
     <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
